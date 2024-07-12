@@ -1,7 +1,11 @@
 "use client";
 
+import { CircleOff, MousePointerClick } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Calendar, { dayNames, monthNames } from "../_components/calendar";
+import Heading from "../_components/heading";
+import { Button } from "../_components/ui/button";
 import {
   Card,
   CardContent,
@@ -9,9 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../_components/ui/card";
-import { Button } from "../_components/ui/button";
-import Link from "next/link";
-import { CircleOff, MousePointerClick } from "lucide-react";
 
 export type Date = {
   day: number;
@@ -112,10 +113,8 @@ const Event = () => {
   }, [calendarDate]);
 
   return (
-    <div className="mx-32">
-      <h1 className="mb-4 text-2xl font-bold">
-        Our <span className="text-primary">Events</span>
-      </h1>
+    <div className="mx-auto w-3/4">
+      <Heading name="Events" />
       <div className="flex gap-4">
         <Calendar
           selected={selectedDate}
@@ -155,22 +154,21 @@ const Event = () => {
                     );
                   })
               ) : (
-                <div
-                  className="text-muted text-5xl m-10 flex flex-row items-center gap-4
-                "
-                >
-                  <span className="text-destructive/60 flex items-center gap-4">
-                    <CircleOff className="w-[1.25em] h-[1.25em]" />
-                    No events
-                  </span>
-                  <p>on the selected date</p>
+                <div className="text-muted-foreground text-5xl m-10 flex flex-row items-center gap-4">
+                  <CircleOff className="w-[1em] h-[1em]" />
+                  <p className="flex gap-3">
+                    <span className="text-destructive/80 flex items-center gap-4">
+                      No events
+                    </span>{" "}
+                    on the selected date
+                  </p>
                 </div>
               )
             ) : (
-              <div className="flex text-muted text-5xl gap-4 m-10 items-center">
+              <div className="flex text-muted-foreground text-5xl gap-4 m-10 items-center">
                 <MousePointerClick className="w-[1.25em] h-[1.25em]" />
-                <p>
-                  Select a <span className="text-primary/50">date</span> to view
+                <p className="flex gap-3">
+                  Select a <span className="text-primary/80">date</span> to view
                   our events
                 </p>
               </div>
@@ -199,8 +197,9 @@ function EventCard({
           <CardDescription>{description}</CardDescription>
         </div>
         <div className="space-x-1">
-          <span>{dayNames[day % 7]}</span>
+          <span>{dayNames[day % 7]},</span>
           <span>{monthNames[month]}</span>
+          <span>{day},</span>
           <span>{year}</span>
         </div>
       </CardHeader>

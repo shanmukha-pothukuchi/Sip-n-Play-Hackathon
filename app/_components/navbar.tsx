@@ -1,5 +1,8 @@
-import React from "react";
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
 import { Button } from "./ui/button";
 
 const links: { name: string; href: string }[] = [
@@ -24,9 +27,9 @@ const NavBar = () => {
       </div>
       <div className="flex gap-6">
         {links.map(({ name, href }, i) => (
-          <Button variant="ghost" asChild key={i}>
-            <NavLink href={href}>{name}</NavLink>
-          </Button>
+          <NavLink href={href} key={i}>
+            {name}
+          </NavLink>
         ))}
         <div className="flex gap-2 items-center">
           <NavLink href="https://www.facebook.com/sipnplaynyc/">
@@ -64,8 +67,14 @@ function NavLink({
   children: React.ReactNode;
   href: string;
 }) {
+  const path = usePathname();
+
   return (
-    <Button variant="ghost" className="py-2 px-4" asChild>
+    <Button
+      variant={path == href ? "outline" : "ghost"}
+      className="py-2 px-4"
+      asChild
+    >
       <Link href={href}>{children}</Link>
     </Button>
   );

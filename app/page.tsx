@@ -1,5 +1,9 @@
+import Heading from "./_components/heading";
+
 export default function Home() {
   return (
-    <h1>Home Page</h1>
+    <div className="mx-auto w-3/4">
+      <Heading name="Store" />
+    </div>
   );
 }

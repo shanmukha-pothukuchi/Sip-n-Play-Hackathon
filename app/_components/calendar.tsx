@@ -115,7 +115,7 @@ const Calendar = ({
 
   return (
     <div className="w-min">
-      <div className="flex items-center justify-between border-2 border-b-0 rounded-t-md">
+      <div className="flex items-center justify-between">
         <NavigationButton onClick={() => changeMonth(-1)}>
           <ChevronLeft className="w-[1.15em] h-[1.15em] text-primary" />
         </NavigationButton>
@@ -136,8 +136,8 @@ const Calendar = ({
           />
         ))}
       />
-      {rows.map((row) => (
-        <CalendarRow cells={row} />
+      {rows.map((row, i) => (
+        <CalendarRow cells={row} key={i} />
       ))}
     </div>
   );
@@ -169,12 +169,10 @@ function CalendarRow({
   className?: string;
 }) {
   return (
-    <div
-      className={`flex ${cn(
-        className
-      )} border-t-2 border-x-2 [&:last-child]:border-b-2 [&:last-child]:rounded-b-md`}
-    >
-      {cells.map((cell) => cell)}
+    <div className={`flex ${cn(className)}`}>
+      {cells.map((cell, i) => (
+        <React.Fragment key={i}>{cell}</React.Fragment>
+      ))}
     </div>
   );
 }
@@ -191,7 +189,7 @@ function CalendarCell({
     <div
       className={`p-2 ${cn(
         className
-      )} text-xs border-r-2 [&:last-child]:border-r-0 w-10 h-10 flex justify-center items-center select-none ${
+      )} text-xs w-10 h-10 flex justify-center items-center select-none rounded-lg ${
         text != "" && hover && !selected && "hover:bg-border cursor-pointer"
       } ${selected && `bg-primary text-accent`} flex-col gap-1`}
       onClick={onClick}
@@ -200,7 +198,7 @@ function CalendarCell({
       {event && (
         <span
           className={`bg-primary ${
-            selected && `bg-accent`
+            selected && `bg-accent-foreground`
           } w-1 aspect-square rounded-full`}
         ></span>
       )}

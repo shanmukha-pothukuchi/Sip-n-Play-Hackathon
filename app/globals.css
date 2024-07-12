@@ -1,7 +1,19 @@
-@tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
 
+body {
+  position: relative;
+  box-sizing: inherit;
+  margin: 0;
+  min-height: 100%;
+  padding-bottom: 2rem;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -50,11 +62,11 @@
   }
 }
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    }
+@layer base {
+  * {
+    @apply border-border;
   }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
