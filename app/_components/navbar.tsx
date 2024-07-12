@@ -15,16 +15,16 @@ const links: { name: string; href: string }[] = [
 
 const NavBar = () => {
   return (
-    <div className="flex items-center justify-between p-6">
+    <div className="flex items-center justify-between p-6 px-8">
       <div>
         <Link href="/">
           {/* <img src="/sipnplay.png" alt="sipnplay logo" className="w-24" /> */}
-          <h1 className="text-bold">Sip & Play</h1>
+          <h1 className="text-bold text-xl">Sip & Play</h1>
         </Link>
       </div>
       <div className="flex gap-6">
-        {links.map(({ name, href }) => (
-          <Button variant="ghost" asChild>
+        {links.map(({ name, href }, i) => (
+          <Button variant="ghost" asChild key={i}>
             <NavLink href={href}>{name}</NavLink>
           </Button>
         ))}
@@ -65,7 +65,7 @@ function NavLink({
   href: string;
 }) {
   return (
-    <Button variant="ghost" className="p-2" asChild>
+    <Button variant="ghost" className="py-2 px-4" asChild>
       <Link href={href}>{children}</Link>
     </Button>
   );
