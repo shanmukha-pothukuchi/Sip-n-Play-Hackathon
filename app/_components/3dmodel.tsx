@@ -1,6 +1,5 @@
 import { OrbitControls, Stage } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { Canvas } from "@react-three/fiber";
 import BubbleTeaNCookies from "./models/BubbleTeaNCookies";
 import CoffeeCup from "./models/CoffeeCup";
 import CoffeeMug from "./models/CoffeeMug";
@@ -34,7 +33,7 @@ const Model = ({ model }: { model: ModelName }) => {
       <ambientLight intensity={0.5} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
       <ModelComponent model={model} />
-      <OrbitControls enableDamping dampingFactor={0.1} enableZoom={false} />
+      <OrbitControls enableDamping dampingFactor={0.1} />
     </Canvas>
   );
 };

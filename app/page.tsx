@@ -10,44 +10,6 @@ import {
   CarouselPrevious,
 } from "./_components/ui/carousel";
 
-const openHours: { day: number; startHour: number; endHour: number }[] = [
-  {
-    day: 0,
-    startHour: 10,
-    endHour: 23,
-  },
-  {
-    day: 1,
-    startHour: 11,
-    endHour: 23,
-  },
-  {
-    day: 2,
-    startHour: 11,
-    endHour: 23,
-  },
-  {
-    day: 3,
-    startHour: 11,
-    endHour: 23,
-  },
-  {
-    day: 4,
-    startHour: 11,
-    endHour: 23,
-  },
-  {
-    day: 5,
-    startHour: 11,
-    endHour: 24,
-  },
-  {
-    day: 5,
-    startHour: 10,
-    endHour: 24,
-  },
-];
-
 const topboardGames: {
   name: string;
   description: string;
@@ -69,7 +31,7 @@ const topboardGames: {
 
 export default function Home() {
   return (
-    <div className="mx-auto w-3/4">
+    <div className="mx-auto mt-4 w-3/4">
       <Card className="p-6 flex justify-between items-center">
         <h1 className="text-xl">Reservations are open for any party size!🎉</h1>
         <div className="space-y-2 flex flex-col items-end">
@@ -78,7 +40,7 @@ export default function Home() {
               Reserve Now
             </Link>
           </Button>
-          <p className="text-xs flex gap-1">
+          <p className="hidden text-xs xl:flex gap-1">
             <span>or email us at </span>
             <Link href="emailto:sipnplaynyc@gmail.com" className="text-primary">
               sipnplaynyc@gmail.com
@@ -86,32 +48,10 @@ export default function Home() {
           </p>
         </div>
       </Card>
-      <div className="mt-6 grid grid-cols-3 gap-x-5">
+      <div className="mt-6 grid xl:grid-cols-3 xl:gap-x-5 max-xl:gap-y-5">
         <div className="space-y-2">
           <h1 className="text-xl flex gap-1">
-            <span
-              className={
-                new Date().getHours() <
-                  openHours.find((v) => v.day == new Date().getDay()).endHour &&
-                new Date().getHours() >
-                  openHours.find((v) => v.day == new Date().getDay()).startHour
-                  ? "text-primary/75"
-                  : "text-destructive/75"
-              }
-            >
-              {new Date().getHours() <
-                openHours.find((v) => v.day == new Date().getDay()).endHour &&
-              new Date().getHours() >
-                openHours.find((v) => v.day == new Date().getDay()).startHour
-                ? "Open"
-                : "Closed"}
-            </span>
-            {new Date().getHours() <
-              openHours.find((v) => v.day == new Date().getDay()).endHour &&
-            new Date().getHours() >
-              openHours.find((v) => v.day == new Date().getDay()).startHour
-              ? "Now"
-              : "Now..."}
+            <span className={"text-primary/90"}>Open</span> Now!
           </h1>
           <Card className="px-5 py-4 space-y-2">
             <h1 className="flex items-center gap-2 text-lg text-primary mb-1">

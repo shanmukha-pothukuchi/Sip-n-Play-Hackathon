@@ -14,20 +14,20 @@ const menu: {
 } = {
   Coffee: [
     { name: "LATTE", details: `$4.75(H)/$5.25(C)`, model: "Coffee Cup" },
-    { name: "CORTADO", details: `$4.25(H)/$4.75(C)`, model: "Coffee Cup" },
+    { name: "CORTADO", details: `$4.25(H)/$4.75(C)`, model: "Coffee Mug" },
     {
       name: "DRIP COFFEE",
       details: `Small: $3(H)/$3.50(C)\nMedium: $3.50(H)\nLarge: $4(H)/$4.25(C)`,
       model: "Coffee Cup",
     },
-    { name: "CAFE AU LAIT", details: `$3.25(H)`, model: "Coffee Cup" },
+    { name: "CAFE AU LAIT", details: `$3.25(H)`, model: "Coffee Mug" },
     { name: "CAPPUCINO", details: `$4.50(H)`, model: "Coffee Cup" },
-    { name: "MOCHA", details: `$5.75(H)/$6.25(C)`, model: "Coffee Cup" },
+    { name: "MOCHA", details: `$5.75(H)/$6.25(C)`, model: "Coffee Mug" },
     { name: "RED EYE", details: `$4.50(H)/$4.75(C)`, model: "Coffee Cup" },
     {
       name: "AMERICANO",
       details: `$3.75(H)/$4.25(C)`,
-      model: "Coffee Cup",
+      model: "Coffee Mug",
     },
   ],
   "Speciality Drinks": [
@@ -39,7 +39,7 @@ const menu: {
     {
       name: "HOT CHOCOLATE",
       details: `$4.50(H)\nS'mores: $5.50`,
-      model: "Bubble Tea And Cookies",
+      model: "Desserts",
     },
     {
       name: "NUTELLA LATTE",
@@ -49,7 +49,7 @@ const menu: {
     {
       name: "CHAI",
       details: `$5.00(H)/$5.50(C)`,
-      model: "Bubble Tea And Cookies",
+      model: "Desserts",
     },
     {
       name: "DIRTY CHAI",
@@ -59,7 +59,7 @@ const menu: {
     {
       name: "LAVENDAR LATTE",
       details: `$5.75(H)/$6.25(C)`,
-      model: "Bubble Tea And Cookies",
+      model: "Dice",
     },
     {
       name: "ROSE LATTE",
@@ -83,7 +83,7 @@ const Menu = () => {
   const [models, setModels] = useState<ModelName[]>([]);
 
   return (
-    <div className="mx-auto w-3/4">
+    <div className="lg:mx-auto max-lg:mx-3 w-3/4 mt-4">
       <Heading name="Menu" />
       {Object.entries(menu).map(([category, items], i) => {
         return (
@@ -91,16 +91,16 @@ const Menu = () => {
             className={`flex ${i % 2 == 1 && `flex-row-reverse`}`}
             key={i}
           >
-            <Card className="w-1/2 rounded-md px-12 py-10">
+            <Card className="rounded-md lg:px-12 max-lg:px-3 lg:py-10 max-lg:py-4 w-1/2">
               <SubHeading name={category} />
-              <div className="grid grid-cols-2 gap-y-4 gap-x-2 w-5/8">
+              <div className="grid lg:grid-cols-2 gap-y-4 gap-x-2 w-5/8">
                 {items.map((item, j) => {
                   return (
                     <MenuItem
                       name={item.name}
                       details={item.details}
                       key={j}
-                      onHover={() => {
+                      onClick={() => {
                         setModels((prev) => {
                           const temp = [...prev];
                           temp[i] = item.model;
@@ -125,14 +125,14 @@ const Menu = () => {
 function MenuItem({
   name,
   details,
-  onHover = () => {},
+  onClick = () => {},
 }: {
   name: string;
   details: string;
-  onHover?: () => void;
+  onClick?: () => void;
 }) {
   return (
-    <div onMouseMove={onHover} onTouchMove={onHover}>
+    <div onClick={onClick}>
       <h3 className="text-xl cursor-pointer">{name.toUpperCase()}</h3>
       {details.split("\n").map((detail, i) => (
         <p className="text-sm text-primary/75" key={i}>

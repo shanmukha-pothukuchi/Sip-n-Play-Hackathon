@@ -12,7 +12,7 @@ import {
 
 const Press = () => {
   return (
-    <div className="mx-auto w-3/4">
+    <div className="mx-auto mt-4 w-3/4">
       <Heading name="News" />
       <div className="space-y-4">
         <Carousel>
@@ -82,13 +82,13 @@ function VideoCard({
   pressLogoPath: string;
 }) {
   return (
-    <Card className="flex overflow-hidden h-fit max-h-[400px] relative w-full">
+    <Card className="flex max-lg:flex-col overflow-hidden h-fit lg:max-h-[400px] relative w-full">
       <img
         src={imagePath}
         alt="Published Image"
-        className="max-w-[40%] min-w-[40%] object-cover"
+        className="lg:max-w-[40%] min-w-[40%] object-cover"
       />
-      <div className="my-8 mx-10 space-y-5 h-full">
+      <div className="lg:my-8 lg:mx-10 max-lg:mx-2 max-lg:my-2 space-y-5 h-full">
         <img src={pressLogoPath} alt="Press Channel" className="w-[120px]" />
         <h2 className="text-2xl text-wrap w-3/4">{headline}</h2>
         <p>{date}</p>
@@ -114,13 +114,13 @@ function LinkCard({
   articleLink: string;
 }) {
   return (
-    <Card className="flex overflow-hidden h-fit max-h-[400px] relative w-full">
+    <Card className="flex max-lg:flex-col overflow-hidden h-fit lg:max-h-[400px] relative w-full">
       <img
         src={imagePath}
         alt="Published Image"
-        className="max-w-[40%] min-w-[40%] object-cover"
+        className="lg:max-w-[40%] min-w-[40%] object-cover"
       />
-      <div className="my-8 mx-10 space-y-5">
+      <div className="lg:my-8 lg:mx-10 max-lg:mx-2 max-lg:my-2 space-y-5">
         <Link href={articleLink} className="text-2xl text-wrap w-3/4 underline">
           {headline}
         </Link>

@@ -113,7 +113,7 @@ const Event = () => {
   }, [calendarDate]);
 
   return (
-    <div className="mx-auto w-3/4">
+    <div className="mx-auto w-3/4 mt-4">
       <Heading name="Events" />
       <div className="flex gap-4">
         <Calendar

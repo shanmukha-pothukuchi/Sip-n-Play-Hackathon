@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import NavBar from "./_components/navbar";
+import Header from "./header";
 import { ThemeProvider } from "./_components/theme-provider";
 import Footer from "./_components/footer";
 
@@ -22,11 +22,11 @@ export default function RootLayout({
       <body className={font.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <NavBar />
+          <Header />
           {children}
           <div className="mt-[100px]">
             <Footer />
