@@ -80,10 +80,10 @@ const menu: {
 };
 
 const Menu = () => {
-  const [models, setModels] = useState<ModelName[]>([]);
+  const [models, setModels] = useState<ModelName[]>(["Coffee Mug", "Desserts"]);
 
   return (
-    <div className="lg:mx-auto max-lg:mx-3 w-3/4 mt-4">
+    <div className="lg:mx-auto max-lg:mx-3 lg:w-3/4 mt-4">
       <Heading name="Menu" />
       {Object.entries(menu).map(([category, items], i) => {
         return (

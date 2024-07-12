@@ -3,14 +3,14 @@ import Heading from "../_components/heading";
 const About = () => {
   return (
     <div className="flex-col space-y-3">
-      <div className="w-full h-[600px] overflow-hidden mb-10">
+      <div className="w-full h-[600px] overflow-hidden md:mb-10">
         <img
           src="/about_pic.png"
           alt="grand opening pic"
           className="w-full h-full object-bottom object-cover"
         />
       </div>
-      <div className="mx-auto w-3/4">
+      <div className="mx-auto md:w-3/4 max-md:mx-3 mt-4">
         <Heading name="Story" />
         <p className="text-base">
           Founder, Jonathan Li, shares a passion for board games, boba, and

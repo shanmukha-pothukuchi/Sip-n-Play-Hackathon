@@ -12,7 +12,7 @@ import {
 
 const Press = () => {
   return (
-    <div className="mx-auto mt-4 w-3/4">
+    <div className="mx-auto mt-4 md:w-3/4 max-md:mx-3">
       <Heading name="News" />
       <div className="space-y-4">
         <Carousel>
@@ -36,8 +36,8 @@ const Press = () => {
               />
             </CarouselItem>
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="max-md:left-[10px]" />
+          <CarouselNext className="max-md:right-[10px]" />
         </Carousel>
         <Carousel>
           <CarouselContent>
@@ -60,8 +60,8 @@ const Press = () => {
               />
             </CarouselItem>
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="max-md:left-[10px]" />
+          <CarouselNext className="max-md:right-[10px]" />
         </Carousel>
       </div>
     </div>

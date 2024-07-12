@@ -16,7 +16,7 @@ export type ModelName =
 const ModelComponent = ({ model }: { model: ModelName }) => {
   return (
     <Stage environment={"city"}>
-      {model === "Coffee Cup" && <CoffeeCup position={[0, -0.5, 2.5]} />}
+      {model === "Coffee Cup" && <CoffeeCup position={[0, 0, 0]} />}
       {model === "Coffee Mug" && <CoffeeMug position={[0, 0, 0]} />}
       {model === "Bubble Tea And Cookies" && (
         <BubbleTeaNCookies position={[0, -1, -1]} />
@@ -33,7 +33,7 @@ const Model = ({ model }: { model: ModelName }) => {
       <ambientLight intensity={0.5} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
       <ModelComponent model={model} />
-      <OrbitControls enableDamping dampingFactor={0.1} />
+      <OrbitControls enableDamping dampingFactor={0.1} autoRotate />
     </Canvas>
   );
 };

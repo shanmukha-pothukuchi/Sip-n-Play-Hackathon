@@ -113,9 +113,9 @@ const Event = () => {
   }, [calendarDate]);
 
   return (
-    <div className="mx-auto w-3/4 mt-4">
+    <div className="mx-auto md:w-3/4 max-md:mx-3 mt-4">
       <Heading name="Events" />
-      <div className="flex gap-4">
+      <div className="flex max-lg:flex-col max-lg:items-center gap-4">
         <Calendar
           selected={selectedDate}
           setSelected={setSelectedDate}
@@ -154,7 +154,7 @@ const Event = () => {
                     );
                   })
               ) : (
-                <div className="text-muted-foreground text-5xl m-10 flex flex-row items-center gap-4">
+                <div className="text-muted-foreground text-5xl max-lg:text-2xl m-10 flex flex-row items-center gap-4">
                   <CircleOff className="w-[1em] h-[1em]" />
                   <p className="flex gap-3">
                     <span className="text-destructive/80 flex items-center gap-4">
@@ -165,9 +165,9 @@ const Event = () => {
                 </div>
               )
             ) : (
-              <div className="flex text-muted-foreground text-5xl gap-4 m-10 items-center">
+              <div className="flex text-muted-foreground text-5xl max-lg:text-2xl gap-4 m-10 items-center">
                 <MousePointerClick className="w-[1.25em] h-[1.25em]" />
-                <p className="flex gap-3">
+                <p>
                   Select a <span className="text-primary/80">date</span> to view
                   our events
                 </p>

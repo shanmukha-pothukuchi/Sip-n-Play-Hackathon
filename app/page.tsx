@@ -31,9 +31,11 @@ const topboardGames: {
 
 export default function Home() {
   return (
-    <div className="mx-auto mt-4 w-3/4">
-      <Card className="p-6 flex justify-between items-center">
-        <h1 className="text-xl">Reservations are open for any party size!🎉</h1>
+    <div className="mx-auto md:w-3/4 max-md:mx-3 mt-4">
+      <Card className="p-6 flex justify-between items-center gap-2">
+        <h1 className="md:text-xl max-md:text-lg">
+          Reservations are open for any party size!🎉
+        </h1>
         <div className="space-y-2 flex flex-col items-end">
           <Button asChild>
             <Link href="https://www.exploretock.com/sipnplay/">

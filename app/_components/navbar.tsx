@@ -20,7 +20,7 @@ const links: { name: string; href: string }[] = [
 
 const NavBar = () => {
   return (
-    <div className="hidden lg:flex items-center justify-between p-6 px-8">
+    <div className="hidden lg:flex items-center justify-between p-4 py-6">
       <div>
         <Link href="/">
           {/* <img src="/sipnplay.png" alt="sipnplay logo" className="w-24" /> */}
@@ -57,7 +57,10 @@ export const MobileNav = () => {
             <h1 className="text-bold text-xl">Sip & Play</h1>
           </Link>
         </SheetTrigger>
-        <SheetContent side="left" className="flex flex-col items-center">
+        <SheetContent
+          side="left"
+          className="flex flex-col items-center max-lg:py-8"
+        >
           <Link href="/">
             {/* <img src="/sipnplay.png" alt="sipnplay logo" className="w-24" /> */}
             <h1 className="text-bold text-xl">Sip & Play</h1>
